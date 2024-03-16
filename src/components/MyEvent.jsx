@@ -14,7 +14,13 @@ export default function MyEvent(){
 
         let data = await response.json();
         setAllEvents(data.data.map((item, index)=>{
-            return <p key={index} id={item._id}>{item.eventName}</p>
+            return <div key={index}>
+                <p id={item._id}>{item.eventName}</p>
+                <button onClick="addZone">Add Zone</button>
+                <button onClick="deleteZone">Delete Zone</button>
+                <button onClick="addConnection">Add Connection</button>
+                <button onClick="deleteConnection">Delete Connection</button>
+            </div>
         }));
         console.log(data);
     }
@@ -24,7 +30,12 @@ export default function MyEvent(){
     }, [])
     return (
         <>
-
+            <div>
+                <h1>My Event</h1>
+                <div>
+                    {allevents}
+                </div>
+            </div>
         </>
     )
 }
