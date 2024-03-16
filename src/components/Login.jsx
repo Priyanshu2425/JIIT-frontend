@@ -19,6 +19,7 @@ export default function Login(){
 
         let data = await response.json();
         console.log(data);
+        localStorage.setItem('auth_token', data.token);
 
     }
 
